@@ -1,0 +1,30 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Definitions for S3 bucket in the first account
+
+Parameters:
+  BucketName:
+    Type: String
+    Description: S3 bucket name
+  EncryptBucket:
+    Type: String
+    Description: Encrypt bucket
+    Default: true
+    AllowedValues:
+      - true
+      - false
+
+Resources:
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref BucketName
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - BucketKeyEnabled: !Ref EncryptBucket
+            ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+
+Outputs:
+  BucketName:
+    Value: !Ref S3Bucket
+    Description: S3 bucket name
