@@ -23,7 +23,6 @@ Resources:
           - BucketKeyEnabled: !Ref EncryptBucket
             ServerSideEncryptionByDefault:
               SSEAlgorithm: AES256
-      # AccessControl: BucketOwnerFullControl
 
 Outputs:
   BucketName:
