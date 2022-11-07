@@ -1,5 +1,3 @@
-# bucket policy for s3 to allow cloudfront from another account to access it
-
 AWSTemplateFormatVersion: "2010-09-09"
 Description: S3 bucket policy for CloudFront access
 
